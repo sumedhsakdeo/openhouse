@@ -66,6 +66,9 @@ public class ClusterProperties {
   @Value("${cluster.security.token.interceptor.classname:#{null}}")
   private String clusterSecurityTokenInterceptorClassname;
 
+  @Value("${cluster.use.spring.security:false}")
+  private boolean clusterUseSpringSecurity;
+
   @Value("${cluster.security.tables.authorization.enabled:false}")
   private boolean clusterSecurityTablesAuthorizationEnabled;
 

@@ -4,7 +4,10 @@ import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.info.Info;
 import io.swagger.v3.oas.models.info.License;
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.actuate.autoconfigure.security.servlet.ManagementWebSecurityAutoConfiguration;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;
 import org.springframework.context.annotation.Bean;
 
 @SuppressWarnings({"PMD", "checkstyle:hideutilityclassconstructor"})
@@ -16,6 +19,8 @@ import org.springframework.context.annotation.Bean;
       "com.linkedin.openhouse.cluster.configs",
       "com.linkedin.openhouse.cluster.storage"
     })
+@EnableAutoConfiguration(
+    exclude = {SecurityAutoConfiguration.class, ManagementWebSecurityAutoConfiguration.class})
 public class HouseTablesSpringApplication {
 
   public static void main(String[] args) {

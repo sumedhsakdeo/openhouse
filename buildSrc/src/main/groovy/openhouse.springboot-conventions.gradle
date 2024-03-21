@@ -26,7 +26,10 @@ dependencies {
 
   implementation 'org.springframework.boot:spring-boot-starter-log4j2:' + springLog4jVersion
   implementation 'org.springframework.boot:spring-boot-starter-actuator:2.7.11'
+  implementation 'org.springframework.boot:spring-boot-starter-oauth2-client:' + springVersion
   implementation 'org.springframework.boot:spring-boot-starter-validation:' + springVersion
+  implementation 'org.springframework.boot:spring-boot-starter-security:' + springVersion
+  implementation 'org.springframework.security:spring-security-web:5.7.3'
   annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor:' + springVersion
   testImplementation 'org.springframework.boot:spring-boot-starter-test:' + springVersion
 

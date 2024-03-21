@@ -19,7 +19,7 @@ cluster:
   security:
     token:
       interceptor:
-        classname: "com.linkedin.openhouse.common.security.DummyTokenInterceptor"
+        classname: "com.linkedin.openhouse.common.security.KeyCloakTokenInterceptor"
     tables:
       authorization:
         enabled: true
