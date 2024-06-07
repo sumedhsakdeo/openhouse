@@ -71,4 +71,7 @@ public class ClusterProperties {
 
   @Value("${cluster.security.tables.authorization.opa.base-uri:#{null}}")
   private String clusterSecurityTablesAuthorizationOpaBaseUri;
+
+  @Value("${cluster.client.pool.size:4}")
+  private int clusterClientPoolSize;
 }

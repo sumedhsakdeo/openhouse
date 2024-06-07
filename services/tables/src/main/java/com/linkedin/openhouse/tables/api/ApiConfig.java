@@ -1,6 +1,8 @@
 package com.linkedin.openhouse.tables.api;
 
+import com.linkedin.openhouse.tables.api.handler.CatalogApiHandler;
 import com.linkedin.openhouse.tables.api.handler.TablesApiHandler;
+import com.linkedin.openhouse.tables.api.handler.impl.OpenHouseCatalogApiHandler;
 import com.linkedin.openhouse.tables.api.handler.impl.OpenHouseTablesApiHandler;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -11,5 +13,10 @@ public class ApiConfig {
   @Bean
   public TablesApiHandler tablesApiHandler() {
     return new OpenHouseTablesApiHandler();
+  }
+
+  @Bean
+  public CatalogApiHandler catalogApiHandler() {
+    return new OpenHouseCatalogApiHandler();
   }
 }
