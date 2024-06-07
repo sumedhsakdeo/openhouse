@@ -51,7 +51,7 @@ public class IcebergRestController {
                 "Credentials have timed out. If possible, the client should refresh credentials and retry.")
       })
   @GetMapping(
-      value = {"/v1/config"},
+      value = {"/iceberg-rest/v1/config"},
       produces = {"application/json"})
   public ResponseEntity<GetCatalogConfigResponseBody> getCatalogConfig(
       @RequestParam(name = "warehouse", required = false) String warehouse) {

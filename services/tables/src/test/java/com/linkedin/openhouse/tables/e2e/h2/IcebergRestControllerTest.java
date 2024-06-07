@@ -28,7 +28,7 @@ public class IcebergRestControllerTest {
   @Test
   public void testGetCatalogConfig() throws Exception {
     mvc.perform(
-            MockMvcRequestBuilders.get(CURRENT_MAJOR_VERSION_PREFIX + "/config")
+            MockMvcRequestBuilders.get("/iceberg-rest" + CURRENT_MAJOR_VERSION_PREFIX + "/config")
                 .accept(MediaType.APPLICATION_JSON))
         .andExpect(status().isOk())
         .andExpect(content().contentType(MediaType.APPLICATION_JSON))
