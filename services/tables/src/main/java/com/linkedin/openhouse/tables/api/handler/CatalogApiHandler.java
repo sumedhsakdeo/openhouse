@@ -1,7 +1,7 @@
 package com.linkedin.openhouse.tables.api.handler;
 
 import com.linkedin.openhouse.common.api.spec.ApiResponse;
-import com.linkedin.openhouse.tables.api.spec.v1.response.GetCatalogConfigResponseBody;
+import com.linkedin.openhouse.tables.api.spec.v1.response.IcebergRestGetCatalogConfigResponseBody;
 
 /**
  * Interface layer between REST and Catalog backend. The implementation is injected into the Service
@@ -14,5 +14,5 @@ public interface CatalogApiHandler {
    *
    * @return the catalog response body that would be returned to the client.
    */
-  ApiResponse<GetCatalogConfigResponseBody> getCatalogConfig();
+  ApiResponse<IcebergRestGetCatalogConfigResponseBody> getCatalogConfig();
 }

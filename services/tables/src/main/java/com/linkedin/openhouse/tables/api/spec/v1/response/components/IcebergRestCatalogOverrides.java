@@ -7,7 +7,7 @@ import lombok.Value;
 
 @Builder
 @Value
-public class CatalogOverrides {
+public class IcebergRestCatalogOverrides {
 
   @Schema(description = "Root path of the data warehouse", example = "s3://my-bucket/")
   @JsonProperty(access = JsonProperty.Access.READ_ONLY)

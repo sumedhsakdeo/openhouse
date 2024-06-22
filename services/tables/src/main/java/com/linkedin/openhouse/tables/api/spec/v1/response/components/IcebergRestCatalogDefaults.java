@@ -7,7 +7,7 @@ import lombok.Value;
 
 @Builder
 @Value
-public class CatalogDefaults {
+public class IcebergRestCatalogDefaults {
 
   @Schema(description = "Client pool size", example = "4")
   @JsonProperty(access = JsonProperty.Access.READ_ONLY)
