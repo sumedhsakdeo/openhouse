@@ -18,6 +18,10 @@ cluster:
         previous-versions-max: 28
         delete-after-commit:
           enabled: true
+  lance:
+    enabled: false
+    sidecar:
+      url: "http://lance-sidecar:8090"
   housetables:
     base-uri: "http://openhouse-housetables:8080"
     database:

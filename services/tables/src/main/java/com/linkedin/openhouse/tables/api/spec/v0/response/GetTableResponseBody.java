@@ -5,6 +5,7 @@ import com.google.gson.Gson;
 import com.linkedin.openhouse.tables.api.spec.v0.request.components.ClusteringColumn;
 import com.linkedin.openhouse.tables.api.spec.v0.request.components.Policies;
 import com.linkedin.openhouse.tables.api.spec.v0.request.components.TimePartitionSpec;
+import com.linkedin.openhouse.tables.common.TableFormat;
 import com.linkedin.openhouse.tables.common.TableType;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.List;
@@ -60,7 +61,8 @@ public class GetTableResponseBody {
   private String tableCreator;
 
   @Schema(
-      description = "Schema of the Table in Iceberg",
+      description =
+          "Schema of the Table (Iceberg schema JSON for ICEBERG format, Arrow schema JSON for LANCE format)",
       example =
           "{\"type\": \"struct\", "
               + "\"fields\": [{\"id\": 1,\"required\": true,\"name\": \"id\",\"type\": \"string\"}, "
@@ -97,6 +99,10 @@ public class GetTableResponseBody {
   @Schema(description = "The type of a table", example = "PRIMARY_TABLE")
   @JsonProperty(access = JsonProperty.Access.READ_ONLY)
   private TableType tableType;
+
+  @Schema(description = "The format of a table", example = "ICEBERG")
+  @JsonProperty(access = JsonProperty.Access.READ_ONLY)
+  private TableFormat tableFormat;
 
   @Schema(
       nullable = true,

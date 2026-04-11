@@ -1,0 +1,27 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "openhouse-lance-services"
+version = "0.1.0"
+description = "Maintenance and data service scripts for OpenHouse Lance tables"
+requires-python = ">=3.12"
+dependencies = [
+    "lancedb>=0.8.0",
+    "pyarrow>=15.0.0",
+    "click>=8.1.0",
+    "requests>=2.31.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "ruff>=0.4.0",
+]
+
+[tool.ruff]
+line-length = 120
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/lance_services"]

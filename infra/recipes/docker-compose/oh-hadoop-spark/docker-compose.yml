@@ -146,6 +146,16 @@ services:
       file: ../common/opa-services.yml
       service: opa
 
+  lance-sidecar:
+    container_name: local.lance-sidecar
+    build:
+      context: ../../../../services/lance-sidecar
+      dockerfile: Dockerfile
+    ports:
+      - "8090:8090"
+    profiles:
+      - with_lance
+
 volumes:
   hadoop_namenode:
   hadoop_datanode:

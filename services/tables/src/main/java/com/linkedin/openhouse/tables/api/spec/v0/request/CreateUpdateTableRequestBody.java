@@ -6,6 +6,7 @@ import com.google.gson.GsonBuilder;
 import com.linkedin.openhouse.tables.api.spec.v0.request.components.ClusteringColumn;
 import com.linkedin.openhouse.tables.api.spec.v0.request.components.Policies;
 import com.linkedin.openhouse.tables.api.spec.v0.request.components.TimePartitionSpec;
+import com.linkedin.openhouse.tables.common.TableFormat;
 import com.linkedin.openhouse.tables.common.TableType;
 import com.linkedin.openhouse.tables.dto.mapper.attribute.PoliciesSpecConverter;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -57,7 +58,8 @@ public class CreateUpdateTableRequestBody {
   private String clusterId;
 
   @Schema(
-      description = "Schema of the table. OpenHouse tables use Iceberg schema specification",
+      description =
+          "Schema of the table (Iceberg schema JSON for ICEBERG format, Arrow schema JSON for LANCE format)",
       example =
           "{\"type\": \"struct\", "
               + "\"fields\": [{\"id\": 1,\"required\": true,\"name\": \"id\",\"type\": \"string\"}, "
@@ -113,6 +115,14 @@ public class CreateUpdateTableRequestBody {
   @Valid
   @Builder.Default
   private TableType tableType = TableType.PRIMARY_TABLE;
+
+  @Schema(
+      description =
+          "The format of a table. ICEBERG for Apache Iceberg tables, LANCE for Lance/LanceDB tables.",
+      defaultValue = "ICEBERG")
+  @Valid
+  @Builder.Default
+  private TableFormat tableFormat = TableFormat.ICEBERG;
 
   @Schema(
       nullable = true,

@@ -51,4 +51,10 @@ public class HouseTable {
    * with this table.
    */
   private String storageType;
+
+  /**
+   * This column indicates the table format (e.g. ICEBERG, LANCE). Defaults to "ICEBERG" for
+   * existing tables that do not have this field set.
+   */
+  private String tableFormat;
 }

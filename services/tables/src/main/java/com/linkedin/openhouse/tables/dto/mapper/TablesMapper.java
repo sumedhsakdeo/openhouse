@@ -8,6 +8,7 @@ import com.linkedin.openhouse.tables.api.spec.v0.response.GetAllSoftDeletedTable
 import com.linkedin.openhouse.tables.api.spec.v0.response.GetSoftDeletedTableResponseBody;
 import com.linkedin.openhouse.tables.api.spec.v0.response.GetTableResponseBody;
 import com.linkedin.openhouse.tables.common.DefaultColumnPattern;
+import com.linkedin.openhouse.tables.common.TableFormat;
 import com.linkedin.openhouse.tables.common.TableType;
 import com.linkedin.openhouse.tables.dto.mapper.iceberg.PartitionSpecMapper;
 import com.linkedin.openhouse.tables.dto.mapper.iceberg.PoliciesSpecMapper;
@@ -31,6 +32,7 @@ import org.springframework.data.domain.Page;
       TablesMapperHelper.class,
       PoliciesSpecMapper.class,
       HashMap.class,
+      TableFormat.class,
       TableType.class,
       DefaultColumnPattern.class,
       SortOrder.class
@@ -63,6 +65,10 @@ public interface TablesMapper {
         source = "requestBody.tableType",
         target = "tableType",
         defaultExpression = "java(TableType.PRIMARY_TABLE)"),
+    @Mapping(
+        source = "requestBody.tableFormat",
+        target = "tableFormat",
+        defaultExpression = "java(TableFormat.ICEBERG)"),
     @Mapping(
         source = "requestBody.baseTableVersion",
         target = "tableVersion"), /* store base version to check later */
@@ -108,6 +114,10 @@ public interface TablesMapper {
         source = "requestBody.createUpdateTableRequestBody.tableType",
         target = "tableType",
         defaultExpression = "java(TableType.PRIMARY_TABLE)"),
+    @Mapping(
+        source = "requestBody.createUpdateTableRequestBody.tableFormat",
+        target = "tableFormat",
+        defaultExpression = "java(TableFormat.ICEBERG)"),
     @Mapping(source = "requestBody.createUpdateTableRequestBody.sortOrder", target = "sortOrder"),
     @Mapping(target = "lastModifiedTime", ignore = true),
     @Mapping(target = "creationTime", ignore = true)

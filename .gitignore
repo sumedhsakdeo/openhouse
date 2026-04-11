@@ -108,3 +108,7 @@ terraform.rc
 
 # Ignore the spark shell bash file because it contains secrets
 start-spark-shell.sh
+
+# Dolt database files (added by bd init)
+.dolt/
+*.db

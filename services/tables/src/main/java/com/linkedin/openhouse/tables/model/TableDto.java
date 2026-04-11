@@ -3,6 +3,7 @@ package com.linkedin.openhouse.tables.model;
 import com.linkedin.openhouse.tables.api.spec.v0.request.components.ClusteringColumn;
 import com.linkedin.openhouse.tables.api.spec.v0.request.components.Policies;
 import com.linkedin.openhouse.tables.api.spec.v0.request.components.TimePartitionSpec;
+import com.linkedin.openhouse.tables.common.TableFormat;
 import com.linkedin.openhouse.tables.common.TableType;
 import com.linkedin.openhouse.tables.dto.mapper.attribute.ClusteringSpecConverter;
 import com.linkedin.openhouse.tables.dto.mapper.attribute.PoliciesSpecConverter;
@@ -56,6 +57,8 @@ public class TableDto {
   private long creationTime;
 
   private TableType tableType;
+
+  private TableFormat tableFormat;
 
   private String sortOrder;
 
